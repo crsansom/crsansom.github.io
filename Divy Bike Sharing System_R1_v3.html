@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs–– -->
+  <meta charset="utf-8">
+  <title>Divy Bike Sharing System</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/customize.css">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+	<style>
+  #map_1,#map_2,#map_3 {
+    height: 500px;
+  }
+  </style>
+
+</head>
+<body>
+
+<div class="container one-bottom" style="margin-top: 50px">
+    <div class="ten columns">
+      <h2>Mobility on Demand Systems: Data-Driven Analysis, Simulation, Visualization</h2>
+      <p>
+        ARCH 6306/6050, DSBA 6010, ITIS 8010/6010: Wednesdays 6pm-8:30pm, Taught Online
+        <br>
+        Dr. Dimitris Papanikolaou | dpapanik@uncc.edu | Urban Synergetics Lab | https://urbansynergeticslab.net
+      </p>
+    </div>
+    <div class="two columns">
+     <a href="https://urbansynergeticslab.net/"><img class="scale-with-grid" src="img/LabLogo_dark_cropped.png"></a>
+    </div>
+  </div>
+  <br>
+	<div class="container one-bottom">
+     <a href="https://www.divvybikes.com/"><img class="scale-with-grid" src="img/img_640/divvy.png"></a>
+    </div>
+  
+  <div class="container one-bottom" style="margin-top: 50px">
+    <div class="twelve columns">
+      <h3>Divvy Bicycle Sharing </h3>
+      <h5>The data presented below is focused on shared bicycle data.  The data used in this analysis was downloaded from https://www.divvybikes.com/. Divvy is a bicycle ride sharing service located in Chicago, Illinois.  Divvy’s bikes and stations are owned by the Chicago Department of Transportation and Lyft operates the fleet.  Currently the fleet consists of over 600 stations throughout Chicago and Evanston Illinois with over 6000 bikes available for use.  Customers can pick up a bike at any station either by purchasing an annual membership for $9 per month (charged $108 annually), purchasing a day pass for $15 per day or a single ride at $3.30 per trip.  Customers can use the interactive map showing available bikes at each station in real time either through a mobile app or the Divvy website. 
+    </div>
+  </div>
+  
+  <div class="container one-bottom" >
+    <div class="twelve columns">
+      <h3> Usage Statistics</h3>
+      <h5>
+        We analyzed Q1 2020 data to come up with station activity levels and usage statistics.  We hope to compare this data with Q1/Q2 2019 and Q2 2020 to see how ridership changed during the pandemic as well as how seasonality impacts usage.  From Q1 2020 data there were over 418,000 total rides logged.  We cleaned the data by filtering out any rides > 240 minutes and any rides <0 minutes.
+<br>
+<br>
+Average Trip Time (Mins): 9.40
+<br>
+Median Trip Time (Mins): 6:46
+<br>
+Member rides were 90% of the total ridership.
+
+      </h5>
+    </div>
+  </div>
+  
+
+
+  
+
+
+<div class="container one-bottom" >
+    <div class="twelve columns">
+      <h3>This map shows the location of 608 Divvy bike stations in Chicago and Evanston.</h3>
+      <h5>
+        
+      </h5>
+    </div>
+  </div>
+  
+  
+  <div id='map_2' style='width: 1325px; height: 400px;'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiY3NhbnNvbSIsImEiOiJja2t5bmlsaGcwODU5Mm9wbDhjOTZjZzR3In0.jHvbBKoo3qNl1zVsufGslw';
+var map_2 = new mapboxgl.Map({
+container: 'map_2', // container ID
+style: 'mapbox://styles/csansom/ckkynt8ay2x2p17qovzq354zp', // style URL
+center: [-87.658, 41.885], // starting position [lng, lat]
+zoom:  11 // starting zoom
+});
+</script>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container one-bottom" >
+    <div class="twelve columns">
+      <h3>This map shows total trips (starts + ends) for each station with the location dot sized to represent the total activity level of each station relative to total trips.</h3>
+      <h5>
+        
+      </h5>
+    </div>
+  </div>
+
+<div id='map_3' style='width: 1325px; height: 400px;'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiY3NhbnNvbSIsImEiOiJja2t5bmlsaGcwODU5Mm9wbDhjOTZjZzR3In0.jHvbBKoo3qNl1zVsufGslw';
+var map_3 = new mapboxgl.Map({
+container: 'map_3', // container ID
+style: 'mapbox://styles/csansom/ckl8ptft806uu19pw0hwdb1pk', // style URL
+center: [-87.658, 41.885], // starting position [lng, lat]
+zoom: 11 // starting zoom
+});
+</script>
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="container one-bottom" >
+    <div class="twelve columns">
+      <h3>Research Focus</h3>
+      <h5>
+        Our research using the data from Divvy is focused around the impacts of seasonality and Covid-19 on the Chicago bike sharing program.
+      </h5>
+    </div>
+  </div>
+
+
+  <div class="container one-bottom" >
+    <div class="row">
+      <img class="container one-bottom" src="img/img_640/Chart_00.jpg" style="width:900px; height:auto;">
+      <img class="container one-bottom" src="img/img_640/Chart_01.jpg" style="width:900px; height:auto;">
+      <img class="container one-bottom" src="img/img_640/Chart_02.jpg" style="width:900px; height:auto;">
+    </div>
+    <div class="row">
+      <img class="container one-bottom" src="img/img_640/Chart_1.jpg" style="width:900px; height:auto;">
+    
+    </div>
+  </div>
+  
+  <div class="container one-bottom" >
+    <h2>Group 5</h2>
+    <h5>This is a list of Students in Group 5</h5>
+    <h3>Richie Sansom</h3>
+    <h5>Richie helped in making graphs, and adjusts their diameters to be proportional to the inventory levels of the stations.</h5>
+    <h3>Deven Lockhart</h3>
+    <h5>Deven helped us with the graphs, and he helped us in choosing the styles in which maps should be presented.</h5>
+    <h3>Subham Kumar Sah</h3>
+    <h5>Subham helped us in setting the HTML page, plot a set of circles at the locations of the stations to make it interactive.</h5>
+	<h3>Garrett West</h3>
+    <h5>Garrett helped on setting the github page and making the website.</h5>
+  </div>
+
+
+</body>
+</html>
