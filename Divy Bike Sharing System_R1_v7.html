@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs–– -->
+  <meta charset="utf-8">
+  <title>Divy Bike Sharing System</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/customize.css">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+	<style>
+  #map_1,#map_2,#map_3 {
+    height: 500px;
+  }
+  </style>
+
+</head>
+<body>
+
+<div class="container one-bottom" style="margin-top: 50px">
+    <div class="ten columns">
+      <h2>Mobility on Demand Systems: Data-Driven Analysis, Simulation, Visualization</h2>
+      <p>
+        ARCH 6306/6050, DSBA 6010, ITIS 8010/6010: Wednesdays 6pm-8:30pm, Taught Online
+        <br>
+        Dr. Dimitris Papanikolaou | dpapanik@uncc.edu | Urban Synergetics Lab | https://urbansynergeticslab.net
+      </p>
+    </div>
+    <div class="two columns">
+     <a href="https://urbansynergeticslab.net/"><img class="scale-with-grid" src="img/LabLogo_dark_cropped.png"></a>
+    </div>
+  </div>
+  <br>
+	<div class="container one-bottom">
+     <a href="https://www.divvybikes.com/"><img class="scale-with-grid" src="img/img_640/divvy.png"></a>
+    </div>
+  
+  <div class="container one-bottom" style="margin-top: 50px">
+    <div class="twelve columns">
+      <h3>Divvy Bicycle Sharing </h3>
+      <h5>The data presented below is focused on shared bicycle data.  The data used in this analysis was downloaded from https://www.divvybikes.com/. Divvy is a bicycle ride sharing service located in Chicago, Illinois.  Divvy’s bikes and stations are owned by the Chicago Department of Transportation and Lyft operates the fleet.  Currently the fleet consists of over 600 stations throughout Chicago and Evanston Illinois with over 6000 bikes available for use.  Customers can pick up a bike at any station either by purchasing an annual membership for $9 per month (charged $108 annually), purchasing a day pass for $15 per day or a single ride at $3.30 per trip.  Customers can use the interactive map showing available bikes at each station in real time either through a mobile app or the Divvy website. 
+    </div>
+  </div>
+  
+  <div class="container one-bottom" >
+    <div class="twelve columns">
+      <h3> Usage Statistics</h3>
+      <h5>
+        We analyzed Q1 2020 data to come up with station activity levels and usage statistics.  We hope to compare this data with Q1/Q2 2019 and Q2 2020 to see how ridership changed during the pandemic as well as how seasonality impacts usage.  From Q1 2020 data there were over 418,000 total rides logged.  We cleaned the data by filtering out any rides > 240 minutes and any rides <0 minutes.
+<br>
+<br>
+Average Trip Time (Mins): 9.40
+<br>
+Median Trip Time (Mins): 6:46
+<br>
+Member rides were 90% of the total ridership.
+
+      </h5>
+    </div>
+  </div>
+  
+
+
+  
+
+
+<div class="container one-bottom" >
+    <div class="twelve columns">
+      <h3>This map shows the location of 608 Divvy bike stations in Chicago and Evanston.</h3>
+      <h5>
+        
+      </h5>
+    </div>
+  </div>
+  
+  
+  <div id='map_2' style='width: 1325px; height: 400px;'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiY3NhbnNvbSIsImEiOiJja2t5bmlsaGcwODU5Mm9wbDhjOTZjZzR3In0.jHvbBKoo3qNl1zVsufGslw';
+var map_2 = new mapboxgl.Map({
+container: 'map_2', // container ID
+style: 'mapbox://styles/csansom/ckkynt8ay2x2p17qovzq354zp', // style URL
+center: [-87.658, 41.885], // starting position [lng, lat]
+zoom:  11 // starting zoom
+});
+</script>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container one-bottom" >
+    <div class="twelve columns">
+      <h3>This map shows total trips (starts + ends) for each station with the location dot sized to represent the total activity level of each station relative to total trips.</h3>
+      <h5>
+        
+      </h5>
+    </div>
+  </div>
+
+<div id='map_3' style='width: 1325px; height: 400px;'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiY3NhbnNvbSIsImEiOiJja2t5bmlsaGcwODU5Mm9wbDhjOTZjZzR3In0.jHvbBKoo3qNl1zVsufGslw';
+var map_3 = new mapboxgl.Map({
+container: 'map_3', // container ID
+style: 'mapbox://styles/csansom/ckl8ptft806uu19pw0hwdb1pk', // style URL
+center: [-87.658, 41.885], // starting position [lng, lat]
+zoom: 11 // starting zoom
+});
+</script>
+
+<br>
+<br>
+<br>
+<br>
+<div class="container one-bottom" >
+    <div class="twelve columns">
+      <h3>Research Focus</h3>
+      <h5>
+        Our research using ridership data from Divvy is focused around the impacts of Covid-19 on the Chicago bike sharing program. 
+		We analyzed the data from April 2019 and compared it to data from April 2020.
+      </h5>
+    </div>
+  </div>
+
+<div class="container one-bottom" >
+    <div class="twelve columns">
+      <h3>This chart compares total ridership for April 2019 and April 2020.</h3>
+	  <h5>
+        
+      </h5>
+         </div>
+  </div>
+  
+ 
+
+<!-- Load c3.css -->
+<head>
+        <script src="https://unpkg.com/d3@5.12.0/dist/d3.min.js"></script>
+        <link href="https://unpkg.com/c3@0.7.11/c3.min.css" rel="stylesheet">
+        <script src="https://unpkg.com/c3@0.7.11/c3.min.js"></script>
+    </head>
+    <body>
+        <div id="chart"></div>
+<script>
+var chart = c3.generate({
+bindto: '#chart',
+    size: {
+        height: 550,
+        width: 1200,
+    },
+    data: {
+        x : 'x',
+        columns: [
+            ['x', 'Ashland Ave & Division St','Broadway & Barry Ave','Canal St & Adams St','Canal St & Madison St','Canal St & Monroe St','Clark St & Elm St','Clark St & Randolph St','Clinton St & Jackson Blvd','Clinton St & Lake St','Clinton St & Madison St','Clinton St & Washington Blvd','Columbus Dr & Randolph St','Daley Center Plaza','Damen Ave & Pierce Ave','Dearborn St & Erie St','Dearborn St & Monroe St','Desplaines St & Jackson Blvd','Desplaines St & Kinzie St','Fairbanks Ct & Grand Ave','Franklin St & Jackson Blvd','Franklin St & Lake St','Franklin St & Monroe St','Green St & Madison St','Indiana Ave & Roosevelt Rd','Kingsbury St & Erie St','Kingsbury St & Kinzie St','Lake Shore Dr & Monroe St','Larrabee St & Kingsbury St','LaSalle St & Illinois St','LaSalle St & Jackson Blvd','McClurg Ct & Illinois St','Michigan Ave & Lake St','Michigan Ave & Washington St','Millennium Park','Morgan St & Lake St','Orleans St & Merchandise Mart Plaza','Ravenswood Ave & Lawrence Ave','Sheffield Ave & Fullerton Ave','St. Clair St & Erie St','State St & Kinzie St','State St & Randolph St','Streeter Dr & Grand Ave','University Ave & 57th St','Wabash Ave & Grand Ave','Wabash Ave & Roosevelt Rd','Wacker Dr & Washington St','Wells St & Concord Ln','Wells St & Hubbard St','Wells St & Huron St'],
+            ['2019', 1319,1114,3979,2724,1212,1730,1249,1692,1818,3764,4128,3265,2570,1371,1726,1711,998,1535,1521,1394,1268,2764,1179,1358,1444,2435,3304,1768,1262,1745,1273,1786,2394,2050,1325,1963,1199,1516,1227,1389,1581,3851,1059,1570,1401,1325,1410,1505,1493
+],
+            ['2020', 530,605,207,154,54,850,197,120,353,337,253,538,206,402,730,329,464,720,490,259,294,201,385,544,499,416,63,210,221,186,396,365,204,299,280,169,267,279,686,229,216,202,92,614,506,77,252,422,529
+],
+        ],
+        type: 'bar'
+    },
+    axis: {
+        x: {
+            label: {
+                text: 'Station Intersection',
+                position: 'outer-center'
+                // inner-right : default
+                // inner-center
+                // inner-left
+                // outer-right
+                // outer-center
+                // outer-left
+            },
+            type: 'category',
+            tick: {
+                rotate: -45,
+                multiline: false
+            },
+            height: 125
+        },
+        y: {
+            label: {
+                text: 'Bike Departures',
+                 position: 'outer-middle'
+                // inner-top : default
+                // inner-middle
+                // inner-bottom
+                // outer-top
+                // outer-middle
+                // outer-bottom
+            },
+        }
+    },
+    zoom: {
+        enabled: true
+    }
+});
+</script>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container one-bottom" >
+    <div class="twelve columns">
+      <h3>The chord graph below depicts traffic between the top 50 stations during April 2019 and April 2020.</h3>
+	  <h5>
+        
+      </h5>
+         </div>
+  </div>
+
+
+  <head>
+    <title>Divvy Spokes</title>
+ 
+    <link rel="stylesheet" href="css/style.css">
+    <link href='http://fonts.googleapis.com/css?family=PT+Serif+Caption:400,400italic' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+  <div class="container">
+    <div class="about_text">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="icons">
+   
+      
+      
+      
+      <a href="#"><div class="image" id="beforeCorona"><img src="img/cycle.jfif" height="64px" />2019 TRIPS</div></a>
+      <a href="#"><div class="image" id="afterCorona"><img src="img/corona1.jpg" height="64px" />2020 TRIPS</div></a>
+      <br />
+    </div>
+   
+    <div class="footer">
+      
+
+    
+    </div>
+    </div>
+      <div id="chart_placeholder"></div>
+
+  <script src="js/d3.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+<script>
+
+var formatPercent = d3.format("%");
+var numberWithCommas = d3.format("0,f");
+
+var dataset = "img/all_trips.json";
+
+var width = 750,
+    height = 575,
+    outerRadius = Math.min(width, height) / 2 - 100,
+    innerRadius = outerRadius - 18;
+
+var last_chord = {};
+
+var arc = d3.svg.arc()
+    .innerRadius(innerRadius)
+    .outerRadius(outerRadius);
+
+var path = d3.svg.chord()
+    .radius(innerRadius);
+
+function getDefaultLayout() {
+    return d3.layout.chord()
+    .padding(0.03)
+    .sortSubgroups(d3.descending)
+    .sortChords(d3.ascending);
+}  
+
+var last_layout; 
+var neighborhoods; 
+
+/*** Initialize the visualization ***/
+var g = d3.select("#chart_placeholder").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+    .append("g")
+        .attr("id", "circle")
+        .attr("transform", 
+              "translate(" + width / 2 + "," + height / 2 + ")");
+//the entire graphic will be drawn within this <g> element,
+//so all coordinates will be relative to the center of the circle
+
+g.append("circle")
+    .attr("r", outerRadius);
+
+/*** Read in neighborhoods data and update with initial data matrix ***/
+
+
+d3.csv("img/neighborhoods.csv", function(error, neighborhoodData) {
+    if (error) {alert("Error reading file: ", error.statusText); return; }
+    neighborhoods = neighborhoodData;
+    updateChords(dataset); 
+});
+
+/* Create OR update a chord layout from a data matrix */
+function updateChords( datasetURL ) {
+    
+  d3.json(datasetURL, function(error, matrix) {
+
+    if (error) {alert("Error reading file: ", error.statusText); return; }
+    
+    /* Compute chord layout. */
+    layout = getDefaultLayout(); //create a new layout object
+    layout.matrix(matrix);
+ 
+    /* Create/update "group" elements */
+    var groupG = g.selectAll("g.group")
+        .data(layout.groups(), function (d) {
+            return d.index; 
+        });
+    
+    groupG.exit()
+        .transition()
+            .duration(1500)
+            .attr("opacity", 0)
+            .remove(); //remove after transitions are complete
+    
+    var newGroups = groupG.enter().append("g")
+        .attr("class", "group");
+    //the enter selection is stored in a variable so we can
+    //enter the <path>, <text>, and <title> elements as well
+
+    
+    //Create the title tooltip for the new groups
+    newGroups.append("title");
+    
+    //Update the (tooltip) title text based on the data
+    groupG.select("title")
+        .text(function(d, i) {
+            return numberWithCommas(d.value) 
+                + " trips started in " 
+                + neighborhoods[i].name;
+        });
+
+    //create the arc paths and set the constant attributes
+    //(those based on the group index, not on the value)
+    newGroups.append("path")
+        .attr("id", function (d) {
+            return "group" + d.index;
+            //using d.index and not i to maintain consistency
+            //even if groups are sorted
+        })
+        .style("fill", function (d) {
+            return neighborhoods[d.index].color;
+        });
+    
+    //update the paths to match the layout
+    groupG.select("path") 
+        .transition()
+            .duration(1500)
+        .attrTween("d", arcTween( last_layout ));
+    
+    //create the group labels
+    newGroups.append("svg:text")
+        .attr("xlink:href", function (d) {
+            return "#group" + d.index;
+        })
+        .attr("dy", ".35em")
+        .attr("color", "#fff")
+        .text(function (d) {
+            return neighborhoods[d.index].name;
+        });
+
+    //position group labels to match layout
+    groupG.select("text")
+        .transition()
+            .duration(1500)
+            .attr("transform", function(d) {
+                d.angle = (d.startAngle + d.endAngle) / 2;
+                //store the midpoint angle in the data object
+                
+                return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")" +
+                    " translate(" + (innerRadius + 26) + ")" + 
+                    (d.angle > Math.PI ? " rotate(180)" : " rotate(0)"); 
+                //include the rotate zero so that transforms can be interpolated
+            })
+            .attr("text-anchor", function (d) {
+                return d.angle > Math.PI ? "end" : "begin";
+            });
+    
+    
+    /* Create/update the chord paths */
+    var chordPaths = g.selectAll("path.chord")
+        .data(layout.chords(), chordKey );
+            //specify a key function to match chords
+            //between updates
+        
+    
+    //create the new chord paths
+    var newChords = chordPaths.enter()
+        .append("path")
+        .attr("class", "chord");
+    
+    // Add title tooltip for each new chord.
+    newChords.append("title");
+    
+    // Update all chord title texts
+    chordPaths.select("title")
+        .text(function(d) {
+            if (neighborhoods[d.target.index].name !== neighborhoods[d.source.index].name) {
+                return [numberWithCommas(d.source.value),
+                        " trips from ",
+                        neighborhoods[d.source.index].name,
+                        " to ",
+                        neighborhoods[d.target.index].name,
+                        "\n",
+                        numberWithCommas(d.target.value),
+                        " trips from ",
+                        neighborhoods[d.target.index].name,
+                        " to ",
+                        neighborhoods[d.source.index].name
+                        ].join(""); 
+            } 
+            else { //source and target are the same
+                return numberWithCommas(d.source.value) 
+                    + " trips started and ended in " 
+                    + neighborhoods[d.source.index].name;
+            }
+        });
+
+    //handle exiting paths:
+    chordPaths.exit().transition()
+        .duration(1500)
+        .attr("opacity", 0)
+        .remove();
+
+    //update the path shape
+    chordPaths.transition()
+        .duration(1500)
+        .style("fill", function (d) {
+            return neighborhoods[d.source.index].color;
+        })
+        .attrTween("d", chordTween(last_layout));
+
+    groupG.on("mouseover", function(d) {
+        chordPaths.classed("fade", function (p) {
+            //returns true if *neither* the source or target of the chord
+            //matches the group that has been moused-over
+            return ((p.source.index != d.index) && (p.target.index != d.index));
+        });
+    });
+    last_layout = layout; //save for next update
+    
+  }); //end of d3.json
+}
+
+function arcTween(oldLayout) {
+    var oldGroups = {};
+    if (oldLayout) {
+        oldLayout.groups().forEach( function(groupData) {
+            oldGroups[ groupData.index ] = groupData;
+        });
+    }
+    
+    return function (d, i) {
+        var tween;
+        var old = oldGroups[d.index];
+        if (old) { //there's a matching old group
+            tween = d3.interpolate(old, d);
+        }
+        else {
+            //create a zero-width arc object
+            var emptyArc = {startAngle:d.startAngle,
+                            endAngle:d.startAngle};
+            tween = d3.interpolate(emptyArc, d);
+        }
+        
+        return function (t) {
+            return arc( tween(t) );
+        };
+    };
+}
+
+function chordKey(data) {
+    return (data.source.index < data.target.index) ?
+        data.source.index  + "-" + data.target.index:
+        data.target.index  + "-" + data.source.index;
+    
+    //create a key that will represent the relationship
+    //between these two groups *regardless*
+    //of which group is called 'source' and which 'target'
+}
+function chordTween(oldLayout) {
+    //this function will be called once per update cycle
+    
+    //Create a key:value version of the old layout's chords array
+    //so we can easily find the matching chord 
+    //(which may not have a matching index)
+    
+    var oldChords = {};
+    
+    if (oldLayout) {
+        oldLayout.chords().forEach( function(chordData) {
+            oldChords[ chordKey(chordData) ] = chordData;
+        });
+    }
+    
+    return function (d, i) {
+        //this function will be called for each active chord
+        
+        var tween;
+        var old = oldChords[ chordKey(d) ];
+        if (old) {
+            //old is not undefined, i.e.
+            //there is a matching old chord value
+            
+            //check whether source and target have been switched:
+            if (d.source.index != old.source.index ){
+                //swap source and target to match the new data
+                old = {
+                    source: old.target,
+                    target: old.source
+                };
+            }
+            
+            tween = d3.interpolate(old, d);
+        }
+        else {
+            //create a zero-width chord object
+            if (oldLayout) {
+                var oldGroups = oldLayout.groups().filter(function(group) {
+                        return ( (group.index == d.source.index) ||
+                                 (group.index == d.target.index) )
+                    });
+                old = {source:oldGroups[0],
+                           target:oldGroups[1] || oldGroups[0] };
+                    //the OR in target is in case source and target are equal
+                    //in the data, in which case only one group will pass the
+                    //filter function
+                
+                if (d.source.index != old.source.index ){
+                    //swap source and target to match the new data
+                    old = {
+                        source: old.target,
+                        target: old.source
+                    };
+                }
+            }
+            else old = d;
+                
+            var emptyChord = {
+                source: { startAngle: old.source.startAngle,
+                         endAngle: old.source.startAngle},
+                target: { startAngle: old.target.startAngle,
+                         endAngle: old.target.startAngle}
+            };
+            tween = d3.interpolate( emptyChord, d );
+        }
+
+        return function (t) {
+            //this function calculates the intermediary shapes
+            return path(tween(t));
+        };
+    };
+}
+
+/* Activate the buttons and link to data sets */
+d3.select("#female").on("click", function () {
+    updateChords( "img/women_trips.json" );
+    disableButton(this);
+});
+
+d3.select("#male").on("click", function() {
+    updateChords( "img/men_trips.json" );
+    disableButton(this);
+});
+
+d3.select("#beforeCorona").on("click", function() {
+    updateChords( "img/2019Trips_trips.json" );
+    disableButton(this);
+});
+
+d3.select("#afterCorona").on("click", function() {
+    updateChords( "img/2020Trips_trips.json" );
+    disableButton(this);
+});
+
+d3.select("#all").on("click", function() {
+    updateChords( "img/all_trips.json" );
+    disableButton(this);
+});
+
+function disableButton(buttonNode) {
+    d3.selectAll("div")
+        .attr("disabled", function(d) {
+            return this === buttonNode ? "true" : null;
+        })
+        .attr("style", function(d) {
+            return this === buttonNode ? "color:#45b8e2;" : "color:#999;";
+        });
+}
+
+
+</script>
+
+<
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+</body>
+</html>
