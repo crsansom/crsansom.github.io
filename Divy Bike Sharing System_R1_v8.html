@@ -210,6 +210,77 @@ bindto: '#chart',
 </script>
 <br>
 <br>
+	    <div class="container one-bottom" >
+    <div class="twelve columns">
+      <h3>This chart compares total ridership for April 2019 and April 2020.</h3>
+	  <h5>
+        
+      </h5>
+         </div>
+  </div>
+  
+ 
+
+<!-- Load c3.css -->
+<head>
+        <script src="https://unpkg.com/d3@5.12.0/dist/d3.min.js"></script>
+        <link href="https://unpkg.com/c3@0.7.11/c3.min.css" rel="stylesheet">
+        <script src="https://unpkg.com/c3@0.7.11/c3.min.js"></script>
+    </head>
+    <body>
+        <div id="chart"></div>
+<script>
+var chart = c3.generate({
+    size: {
+        height: 350,
+        width: 1500,
+    },
+    data: {
+        x : 'x',
+        columns: [
+            ['x', 'Canal St & Adams St','Canal St & Madison St','Clinton St & Madison St','Clinton St & Washington Blvd','Columbus Dr & Randolph St','Daley Center Plaza','Franklin St & Monroe St','Lake Shore Dr & Monroe St','Michigan Ave & Washington St','Streeter Dr & Grand Ave',],
+            ['Difference Between 2019-2020', 3772,2570,3427,3875,2727,2364,2563,3241,2190,3649
+        ],
+        ],
+        type: 'bar'
+    },
+    axis: {
+        x: {
+            label: {
+                text: 'Top 10 Stations Impacted',
+                position: 'outer-center'
+                // inner-right : default
+                // inner-center
+                // inner-left
+                // outer-right
+                // outer-center
+                // outer-left
+            },
+            type: 'category',
+            tick: {
+                rotate: -45,
+                multiline: false
+            },
+            height: 125
+        },
+        y: {
+            label: {
+                text: 'Bike Departures',
+                 position: 'outer-middle'
+                // inner-top : default
+                // inner-middle
+                // inner-bottom
+                // outer-top
+                // outer-middle
+                // outer-bottom
+            },
+        }
+    },
+    zoom: {
+        enabled: true
+    }
+});
+</script>
 <br>
 <br>
 <br>
