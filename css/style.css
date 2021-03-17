@@ -53,6 +53,7 @@ body {
 
 .icons {
   width: 400px;
+  Float:right;
 }
 
 .icons .image {
