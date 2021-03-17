@@ -133,6 +133,79 @@ zoom: 11 // starting zoom
       </h5>
     </div>
   </div>
+<div class="container one-bottom" >
+    <div class="twelve columns">
+      <h3>This chart compares total rides by the day of the week for April 2019 and April 2020.</h3>
+	  <h5>
+        
+      </h5>
+         </div>
+  </div>
+  	  
+<!-- Load c3.css -->
+<head>
+        <script src="https://unpkg.com/d3@5.12.0/dist/d3.min.js"></script>
+        <link href="https://unpkg.com/c3@0.7.11/c3.min.css" rel="stylesheet">
+        <script src="https://unpkg.com/c3@0.7.11/c3.min.js"></script>
+    </head>
+    <body>
+        <div id="chart_2"></div>
+<script>
+var chart = c3.generate({
+bindto: '#chart_2',
+    size: {
+        height: 550,
+        width: 1200,
+    },
+    data: {
+        x : 'x',
+        columns: [
+            ['x', 'Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+            ['2019', 27089,49996,50008,39976,32499,37458,28283 
+],
+            ['2020', 17915,10745,12813,8718,11703,9972,12910
+],
+        ],
+        type: 'bar'
+    },
+    axis: {
+        x: {
+            label: {
+                text: 'Day of the Week',
+                position: 'outer-center'
+                // inner-right : default
+                // inner-center
+                // inner-left
+                // outer-right
+                // outer-center
+                // outer-left
+            },
+            type: 'category',
+            tick: {
+                rotate: -45,
+                multiline: false
+            },
+            height: 125
+        },
+        y: {
+            label: {
+                text: 'Bike Trips',
+                 position: 'outer-middle'
+                // inner-top : default
+                // inner-middle
+                // inner-bottom
+                // outer-top
+                // outer-middle
+                // outer-bottom
+            },
+        }
+    },
+    zoom: {
+        enabled: true
+    }
+});
+</script>
+<br>
 
 <div class="container one-bottom" >
     <div class="twelve columns">
