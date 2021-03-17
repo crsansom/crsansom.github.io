@@ -212,7 +212,7 @@ bindto: '#chart',
 <br>
 	    <div class="container one-bottom" >
     <div class="twelve columns">
-      <h3>This chart compares total ridership for April 2019 and April 2020.</h3>
+      <h3>This chart shows the top 10 stations impacted from Covid19 in terms of overall ridership change from April 2019 and April 2020.</h3>
 	  <h5>
         
       </h5>
@@ -228,9 +228,10 @@ bindto: '#chart',
         <script src="https://unpkg.com/c3@0.7.11/c3.min.js"></script>
     </head>
     <body>
-        <div id="chart"></div>
+        <div id="chart_1"></div>
 <script>
 var chart = c3.generate({
+	bindto: '#chart_1',
     size: {
         height: 350,
         width: 1500,
