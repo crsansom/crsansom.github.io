@@ -18,7 +18,7 @@
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
 	<style>
-  #map_1,#map_2,#map_3 {
+  #map_2,#map_3, #map_1 {
     height: 500px;
   }
   </style>
@@ -209,6 +209,26 @@ bindto: '#chart',
 </script>
 <br>
 <br>
+	    <div class="container one-bottom" >
+    <div class="twelve columns">
+      <h3>This map shows the location of 10 biggest stations impacted by Covid-19.</h3>
+      <h5>
+        
+      </h5>
+    </div>
+  </div>
+  
+  
+  <div id='map_2' style='width: 1325px; height: 400px;'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1Ijoic3ViaGFtc2FoIiwiYSI6ImNrbDVlajh3dDFnZXEyb3FpcG1ncHI4MjkifQ.ybCotMq5qBJcKi3xL_O9Og';
+var map_2 = new mapboxgl.Map({
+container: 'map_2', // container ID
+style: 'mapbox://styles/subhamsah/ckmd3lls25ty917o7rkh1236s' // style URL
+center: [-87.658, 41.885], // starting position [lng, lat]
+zoom:  11 // starting zoom
+});
+</script>
 <br>
 <br>
 <br>
