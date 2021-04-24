@@ -238,9 +238,7 @@ bindto: '#chart_2',
 <div class="container one-bottom" >
     <div class="twelve columns">
       <h3> This chart compares total rides by the day of the week for Portland-Biketown for April 2019 and April 2020.</h3>
-	  <h5>
-        This chart compares total Portland-Biketown rides from April 2019 and April 2020 by days of the week.  In addition to the fact that total ridership is down considerably in April 2020 as compared to 2019 there is also a change in customer behavior.  In 2019 customers were using the bikes more during the week while in 2020 Saturday and Sunday are the busiest days.  Perhaps this suggests that in 2019 these bikes were used more for commuting and in 2020 the bikes are used more frequently for leisure.
-      </h5>
+	
          </div>
   </div>
   	  
@@ -307,6 +305,78 @@ bindto: '#chart_4',
     }
 });
 </script>
+
+<div class="container one-bottom" >
+    <div class="twelve columns">
+      <h3> This chart compares total rides by the day of the week for Philadelphia-Indego for April 2019 and April 2020.</h3>
+	
+         </div>
+  </div>
+  	  
+<!-- Load c3.css -->
+<head>
+        <script src="https://unpkg.com/d3@5.12.0/dist/d3.min.js"></script>
+        <link href="https://unpkg.com/c3@0.7.11/c3.min.css" rel="stylesheet">
+        <script src="https://unpkg.com/c3@0.7.11/c3.min.js"></script>
+    </head>
+    <body>
+        <div id="chart_4"></div>
+<script>
+var chart = c3.generate({
+bindto: '#chart_4',
+    size: {
+        height: 550,
+        width: 1800,
+    },
+    data: {
+        x : 'x',
+        columns: [
+            ['x', 'Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+            ['2019', 6945, 9040, 10959, 8901, 8617, 5740, 7883 
+],
+            ['2020', 4826, 3573, 4679, 5240, 4011, 3176, 5517
+],
+        ],
+        type: 'bar'
+    },
+    axis: {
+        x: {
+            label: {
+                text: 'Day of the Week',
+                position: 'outer-center'
+                // inner-right : default
+                // inner-center
+                // inner-left
+                // outer-right
+                // outer-center
+                // outer-left
+            },
+            type: 'category',
+            tick: {
+                rotate: -45,
+                multiline: false
+            },
+            height: 125
+        },
+        y: {
+            label: {
+                text: 'Bike Trips',
+                 position: 'outer-middle'
+                // inner-top : default
+                // inner-middle
+                // inner-bottom
+                // outer-top
+                // outer-middle
+                // outer-bottom
+            },
+        }
+    },
+    zoom: {
+        enabled: true
+    }
+});
+</script>	    
+	    
 <br>	    
 	    
 <div class="container one-bottom" >
